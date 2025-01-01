@@ -43,6 +43,7 @@ export const chats = pgTable("chats", {
 export const chatParticipants = pgTable("chat_participants", {
   id: varchar("id").primaryKey().unique(),
   chat_id: varchar("chat_id").references(() => chats.id),
+  role: varchar("role"),
   participant_id: varchar("participant_id"),
 });
 
@@ -57,6 +58,9 @@ export const messages = pgTable("messages", {
   id: varchar("id").primaryKey().unique(),
   chat_id: varchar("chat_id").references(() => chats.id),
   sender_id: varchar("sender_id"),
+  role: varchar("role"),
+  profile_image: varchar("profile_image"),
+  name: varchar("name"),
   message: text("message"),
   created_at: timestamp("created_at"),
 });

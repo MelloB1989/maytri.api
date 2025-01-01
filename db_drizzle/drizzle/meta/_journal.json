@@ -15,6 +15,20 @@
       "when": 1735746038966,
       "tag": "0001_calm_jack_power",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1735756168250,
+      "tag": "0002_sudden_vision",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1735758045409,
+      "tag": "0003_kind_revanche",
+      "breakpoints": true
     }
   ]
 }

@@ -39,6 +39,7 @@ func RegisterUser(c *fiber.Ctx) error {
 		"age":   req.Age,
 		"phone": req.Phone,
 		"uid":   req.Id,
+		"name":  req.Name,
 	})
 	return c.Status(201).JSON(fiber.Map{
 		"success": true,

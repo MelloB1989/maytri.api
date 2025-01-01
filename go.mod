@@ -3,7 +3,7 @@ module maytri
 go 1.23.4
 
 require (
-	github.com/MelloB1989/karma v1.5.43
+	github.com/MelloB1989/karma v1.5.46
 	github.com/dgrijalva/jwt-go v3.2.0+incompatible
 	github.com/gofiber/fiber/v2 v2.52.5
 	github.com/golang-jwt/jwt v3.2.2+incompatible

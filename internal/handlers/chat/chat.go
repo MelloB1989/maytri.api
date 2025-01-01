@@ -58,6 +58,7 @@ func CreatePrivateChat(c *fiber.Ctx) error {
 		Id:            utils.GenerateID(),
 		ChatId:        cid,
 		ParticipantId: mid,
+		Role:          "maytri",
 	}); err != nil {
 		return c.Status(500).JSON(fiber.Map{
 			"error": "Internal Server Error",
@@ -69,6 +70,7 @@ func CreatePrivateChat(c *fiber.Ctx) error {
 		Id:            utils.GenerateID(),
 		ChatId:        cid,
 		ParticipantId: uid,
+		Role:          "user",
 	}); err != nil {
 		return c.Status(500).JSON(fiber.Map{
 			"error": "Internal Server Error",

@@ -50,6 +50,7 @@ type ChatParticipants struct {
 	TableName     string `karma_table:"chat_participants"`
 	Id            string `json:"id"`
 	ChatId        string `json:"chat_id"`
+	Role          string `json:"role"`
 	ParticipantId string `json:"participant_id"`
 }
 
@@ -62,12 +63,15 @@ type GroupDetails struct {
 }
 
 type Messages struct {
-	TableName string    `karma_table:"messages"`
-	Id        string    `json:"id"`
-	ChatId    string    `json:"chat_id"`
-	SenderId  string    `json:"sender_id"`
-	Message   string    `json:"message"`
-	CreatedAt time.Time `json:"created_at"`
+	TableName    string    `karma_table:"messages"`
+	Id           string    `json:"id"`
+	ChatId       string    `json:"chat_id"`
+	SenderId     string    `json:"sender_id"`
+	ProfileImage string    `json:"profile_image"`
+	Role         string    `json:"role"`
+	Name         string    `json:"name"`
+	Message      string    `json:"message"`
+	CreatedAt    time.Time `json:"created_at"`
 }
 
 type ResponseHTTP struct {
@@ -81,5 +85,6 @@ type Claims struct {
 	Age   int    `json:"age"`
 	Phone string `json:"phone"`
 	Uid   string `json:"uid"`
+	Name  string `json:"name"`
 	jwt.StandardClaims
 }

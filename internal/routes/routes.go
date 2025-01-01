@@ -3,6 +3,7 @@ package routes
 import (
 	"maytri/internal/handlers/ai"
 	"maytri/internal/handlers/chat"
+	"maytri/internal/handlers/messages"
 	"maytri/internal/handlers/users"
 	"maytri/internal/helpers/auth"
 	"maytri/middlewares"
@@ -40,5 +41,9 @@ func Routes() *fiber.App {
 
 	aiRoutes := v1.Group("/ai")
 	aiRoutes.Post("/newMaytri", middlewares.IsUserVerified, ai.GetNewMaytri)
+
+	messageRoutes := v1.Group("/message")
+	messageRoutes.Post("/private/:chat_id", middlewares.IsUserVerified, messages.PrivateChat)
+	messageRoutes.Get("/private/:chat_id", middlewares.IsUserVerified, messages.GetPrivateChatMessages)
 	return app
 }
