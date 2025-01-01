@@ -1,7 +1,9 @@
 package routes
 
 import (
+	"maytri/internal/handlers/users"
 	"maytri/internal/helpers/auth"
+	"maytri/middlewares"
 	"maytri/models"
 
 	a "github.com/MelloB1989/karma/auth"
@@ -29,5 +31,7 @@ func Routes() *fiber.App {
 	authRoutes := v1.Group("/auth")
 	authRoutes.Post("/login", a.LoginWithPhoneOTPHandler(auth.GetUser))
 	authRoutes.Post("/verify_otp", a.VerifyPhoneOTPHandler(auth.GetUser))
+	authRoutes.Post("/register", middlewares.IsUserVerified, users.RegisterUser)
+
 	return app
 }

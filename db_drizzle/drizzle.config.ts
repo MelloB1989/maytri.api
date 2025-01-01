@@ -8,7 +8,7 @@ export default {
     host: "100.99.161.86",
     user: "mellob",
     password: "mellob1989",
-    database: "mayri",
+    database: "maytri",
     ssl: false,
   },
 } satisfies Config;
