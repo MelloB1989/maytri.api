@@ -1,6 +1,7 @@
 package users
 
 import (
+	"fmt"
 	"maytri/models"
 
 	"github.com/MelloB1989/karma/errors"
@@ -12,6 +13,7 @@ import (
 
 func RegisterUser(c *fiber.Ctx) error {
 	req := new(models.User)
+	phone := c.Locals("phone").(string)
 	if err := c.BodyParser(req); err != nil {
 		return c.Status(400).JSON(fiber.Map{
 			"success": false,
@@ -20,8 +22,12 @@ func RegisterUser(c *fiber.Ctx) error {
 		})
 	}
 
+	req.Phone = phone
+	req.Id = utils.GenerateID()
+
 	usersORM := orm.Load(&models.User{})
-	if err := usersORM.Insert(&req); err != nil {
+	if err := usersORM.Insert(req); err != nil {
+		fmt.Println(err)
 		return c.Status(500).JSON(fiber.Map{
 			"success": false,
 			"message": "Failed to create user",

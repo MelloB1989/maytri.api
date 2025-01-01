@@ -1,0 +1,142 @@
+[
+  {
+    "error_code": 1001,
+    "description": "Database connection problem occurred.",
+    "error_msg": "Unable to establish connection with the database.",
+    "user_msg": "We are experiencing technical issues. Please try again later.",
+    "error_level": "database"
+  },
+  {
+    "error_code": 1002,
+    "description": "No response received from the database.",
+    "error_msg": "The database server is not responding.",
+    "user_msg": "We are unable to process your request right now. Please try again later.",
+    "error_level": "database"
+  },
+  {
+    "error_code": 2001,
+    "description": "The user does not exist in the system.",
+    "error_msg": "User record not found.",
+    "user_msg": "User does not exist. Please sign up to continue.",
+    "error_level": "handler"
+  },
+  {
+    "error_code": 2002,
+    "description": "Invalid user region ID detected.",
+    "error_msg": "The provided region ID is not valid.",
+    "user_msg": "Your session has expired. Please log in again.",
+    "error_level": "handler"
+  },
+  {
+    "error_code": 2003,
+    "description": "Plan ID is not valid or does not exist.",
+    "error_msg": "Invalid plan ID.",
+    "user_msg": "The plan you are looking for does not exist.",
+    "error_level": "handler"
+  },
+  {
+    "error_code": 3001,
+    "description": "No venues found matching the criteria.",
+    "error_msg": "No venues available.",
+    "user_msg": "No venues found. Please adjust your search and try again.",
+    "error_level": "helper"
+  },
+  {
+    "error_code": 3002,
+    "description": "No plans available for the user.",
+    "error_msg": "User has no plans.",
+    "user_msg": "No plans found. Start creating new plans today!",
+    "error_level": "helper"
+  },
+  {
+    "error_code": 3003,
+    "description": "No bookings found for the user.",
+    "error_msg": "User has no bookings.",
+    "user_msg": "No bookings found. Book your first event now!",
+    "error_level": "helper"
+  },
+  {
+    "error_code": 3004,
+    "description": "Your request body is invalid.",
+    "error_msg": "Invalid request body.",
+    "user_msg": "This is a unexpected error. Please try again later.",
+    "error_level": "handler"
+  },
+  {
+    "error_code": 3005,
+    "description": "Failed to save plan, the planId or questionId is wrong or missing.",
+    "error_msg": "Invalid planId or questionId.",
+    "user_msg": "We encountered an error while saving your plan. Please try again.",
+    "error_level": "handler"
+  },
+  {
+    "error_code": 4001,
+    "description": "Invalid input provided to the API.",
+    "error_msg": "The request payload contains invalid or missing fields.",
+    "user_msg": "Invalid input. Please check your data and try again.",
+    "error_level": "handler"
+  },
+  {
+    "error_code": 4002,
+    "description": "Authentication failure.",
+    "error_msg": "User authentication failed due to invalid credentials or JWT token.",
+    "user_msg": "Incorrect username or password. Please try again.",
+    "error_level": "middleware"
+  },
+  {
+    "error_code": 4003,
+    "description": "Authorization failure.",
+    "error_msg": "User does not have sufficient permissions for the requested operation.",
+    "user_msg": "You do not have permission to perform this action.",
+    "error_level": "middleware"
+  },
+  {
+    "error_code": 5001,
+    "description": "Internal server error occurred.",
+    "error_msg": "Unexpected error in the backend service.",
+    "user_msg": "We encountered a technical issue. Please try again later.",
+    "error_level": "service"
+  },
+  {
+    "error_code": 5002,
+    "description": "Cache layer failure.",
+    "error_msg": "Failed to retrieve or store data in the cache.",
+    "user_msg": "We are experiencing technical issues. Please try again later.",
+    "error_level": "service"
+  },
+  {
+    "error_code": 5003,
+    "description": "Service dependency failure.",
+    "error_msg": "An external service or API failed to respond.",
+    "user_msg": "We are unable to complete your request at the moment. Please try again later.",
+    "error_level": "service"
+  },
+  {
+    "error_code": 6001,
+    "description": "Rate limit exceeded.",
+    "error_msg": "The user has exceeded the allowed number of API requests.",
+    "user_msg": "You have exceeded the maximum number of requests. Please wait and try again later.",
+    "error_level": "middleware"
+  },
+  {
+    "error_code": 6002,
+    "description": "File upload error.",
+    "error_msg": "Error occurred while processing the uploaded file.",
+    "user_msg": "We could not process your file. Please try uploading again.",
+    "error_level": "service"
+  },
+  {
+    "error_code": 6003,
+    "description": "Email delivery failure.",
+    "error_msg": "Failed to send email to the provided address.",
+    "user_msg": "We couldn't send the email. Please check your email address and try again.",
+    "error_level": "service"
+  },
+  {
+    "error_code": 6004,
+    "description": "Session expired.",
+    "error_msg": "User session has timed out due to inactivity.",
+    "user_msg": "Your session has expired. Please log in again.",
+    "error_level": "middleware"
+  }
+]

@@ -1,0 +1,26 @@
+meta {
+  name: register
+  type: http
+  seq: 2
+}
+
+post {
+  url: {{HOST}}/v1/auth/register
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MzgzMzUxNDksInBob25lIjoiKzkxOTgxMjk0MDcwNiJ9.au5as-z-cb8FTkjJSKS1axVtYz3uf_w7KtirjfqVLKQ
+}
+
+body:json {
+  {
+      "email": "johndoe@example.com",
+      "address": "123 Main Street, Springfield, IL, USA",
+      "name": "John Doe",
+      "profile_image": "https://example.com/images/profile/johndoe.png",
+      "age": 28,
+      "location": "Springfield, IL"
+  }
+}

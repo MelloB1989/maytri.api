@@ -7,6 +7,7 @@ import (
 )
 
 type User struct {
+	TableName    string `karma_table:"users"`
 	Id           string `json:"id"`
 	Email        string `json:"email"`
 	Phone        string `json:"phone"`
@@ -19,6 +20,7 @@ type User struct {
 }
 
 type Maytri struct {
+	TableName  string    `karma_table:"maytri"`
 	Id         string    `json:"id"`
 	UserId     string    `json:"user_id"`
 	Descrption string    `json:"description"`
@@ -29,7 +31,15 @@ type Maytri struct {
 	CreatedAt  time.Time `json:"created_at"`
 }
 
+type MytriRequest struct {
+	Age        int    `json:"age"`
+	Gender     string `json:"gender"`
+	Descrption string `json:"description"`
+	Profession string `json:"profession"`
+}
+
 type Chats struct {
+	TableName string    `karma_table:"chats"`
 	Id        string    `json:"id"`
 	UserId    string    `json:"user_id"`
 	Type      string    `json:"type"`
@@ -37,13 +47,15 @@ type Chats struct {
 }
 
 type ChatParticipants struct {
-	Id      string `json:"id"`
-	ChatId  string `json:"chat_id"`
-	UserId  string `json:"user_id"`
-	MytriId string `json:"mytri_id"`
+	TableName string `karma_table:"chat_participants"`
+	Id        string `json:"id"`
+	ChatId    string `json:"chat_id"`
+	UserId    string `json:"user_id"`
+	MytriId   string `json:"mytri_id"`
 }
 
 type GroupDetails struct {
+	TableName       string `karma_table:"group_details"`
 	ChatId          string `json:"chat_id"`
 	GroupName       string `json:"group_name"`
 	GroupImage      string `json:"group_image"`
@@ -51,6 +63,7 @@ type GroupDetails struct {
 }
 
 type Messages struct {
+	TableName string    `karma_table:"messages"`
 	Id        string    `json:"id"`
 	ChatId    string    `json:"chat_id"`
 	SenderId  string    `json:"sender_id"`
