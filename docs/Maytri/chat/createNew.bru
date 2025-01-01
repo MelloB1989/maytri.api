@@ -1,0 +1,24 @@
+meta {
+  name: createNew
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{HOST}}/v1/chat/private
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2UiOjI4LCJlbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJmY3dtMmQ4NDhmIn0.d9F4zVnDgWbTGSxj3BhE4siGG8IVIEnCyhIC711wRco
+}
+
+body:json {
+  {
+    "age": 20,
+    "gender": "female",
+    "description": "Lily is here to brighten your day! Whether you need a listening ear, advice, or a dose of positivity, she’s always ready to chat. She's friendly, empathetic, and loves meaningful conversations.",
+    "profession": "student"
+  }
+}

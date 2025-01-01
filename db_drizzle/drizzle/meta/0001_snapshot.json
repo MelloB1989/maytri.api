@@ -1,6 +1,6 @@
 {
-  "id": "a6c91397-ce7d-4a9a-bb91-2d3caa05a546",
-  "prevId": "18b1bd40-ee35-4dc2-93ac-5c1dc57393b9",
+  "id": "271e3082-2ec5-4f13-88bf-98aab092631a",
+  "prevId": "aedd8c9b-9be1-44d8-b7a7-55e208d3e667",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -20,14 +20,8 @@
           "primaryKey": false,
           "notNull": false
         },
-        "user_id": {
-          "name": "user_id",
-          "type": "varchar",
-          "primaryKey": false,
-          "notNull": false
-        },
-        "maytri_id": {
-          "name": "maytri_id",
+        "participant_id": {
+          "name": "participant_id",
           "type": "varchar",
           "primaryKey": false,
           "notNull": false
@@ -41,32 +35,6 @@
           "tableTo": "chats",
           "columnsFrom": [
             "chat_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        },
-        "chat_participants_user_id_users_id_fk": {
-          "name": "chat_participants_user_id_users_id_fk",
-          "tableFrom": "chat_participants",
-          "tableTo": "users",
-          "columnsFrom": [
-            "user_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
-          "onDelete": "no action",
-          "onUpdate": "no action"
-        },
-        "chat_participants_maytri_id_maytri_id_fk": {
-          "name": "chat_participants_maytri_id_maytri_id_fk",
-          "tableFrom": "chat_participants",
-          "tableTo": "maytri",
-          "columnsFrom": [
-            "maytri_id"
           ],
           "columnsTo": [
             "id"
@@ -263,6 +231,68 @@
       "uniqueConstraints": {
         "maytri_id_unique": {
           "name": "maytri_id_unique",
+          "nullsNotDistinct": false,
+          "columns": [
+            "id"
+          ]
+        }
+      }
+    },
+    "public.messages": {
+      "name": "messages",
+      "schema": "",
+      "columns": {
+        "id": {
+          "name": "id",
+          "type": "varchar",
+          "primaryKey": true,
+          "notNull": true
+        },
+        "chat_id": {
+          "name": "chat_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "sender_id": {
+          "name": "sender_id",
+          "type": "varchar",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "message": {
+          "name": "message",
+          "type": "text",
+          "primaryKey": false,
+          "notNull": false
+        },
+        "created_at": {
+          "name": "created_at",
+          "type": "timestamp",
+          "primaryKey": false,
+          "notNull": false
+        }
+      },
+      "indexes": {},
+      "foreignKeys": {
+        "messages_chat_id_chats_id_fk": {
+          "name": "messages_chat_id_chats_id_fk",
+          "tableFrom": "messages",
+          "tableTo": "chats",
+          "columnsFrom": [
+            "chat_id"
+          ],
+          "columnsTo": [
+            "id"
+          ],
+          "onDelete": "no action",
+          "onUpdate": "no action"
+        }
+      },
+      "compositePrimaryKeys": {},
+      "uniqueConstraints": {
+        "messages_id_unique": {
+          "name": "messages_id_unique",
           "nullsNotDistinct": false,
           "columns": [
             "id"

@@ -43,8 +43,7 @@ export const chats = pgTable("chats", {
 export const chatParticipants = pgTable("chat_participants", {
   id: varchar("id").primaryKey().unique(),
   chat_id: varchar("chat_id").references(() => chats.id),
-  user_id: varchar("user_id").references(() => users.id),
-  maytri_id: varchar("maytri_id").references(() => maytri.id),
+  participant_id: varchar("participant_id"),
 });
 
 export const groupDetails = pgTable("group_details", {

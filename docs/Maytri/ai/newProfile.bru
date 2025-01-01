@@ -1,0 +1,27 @@
+meta {
+  name: newProfile
+  type: http
+  seq: 1
+}
+
+post {
+  url: {{HOST}}/v1/ai/newMaytri
+  body: json
+  auth: bearer
+}
+
+auth:bearer {
+  token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhZ2UiOjI4LCJlbWFpbCI6ImpvaG5kb2VAZXhhbXBsZS5jb20iLCJwaG9uZSI6Iis5MTk4MTI5NDA3MDYiLCJ1aWQiOiJmY3dtMmQ4NDhmIn0.d9F4zVnDgWbTGSxj3BhE4siGG8IVIEnCyhIC711wRco
+}
+
+body:json {
+  {
+      "age": "25",
+      "gender": "female",
+      "profession": "Software Engineer",
+      "interests": ["technology", "gaming", "sustainability", "reading"],
+      "hobbies": ["painting", "yoga", "hiking", "cooking"],
+      "tone": "friendly",
+      "type": "companion"
+  }
+}

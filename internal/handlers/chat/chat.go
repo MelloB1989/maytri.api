@@ -18,9 +18,11 @@ func CreatePrivateChat(c *fiber.Ctx) error {
 		})
 	}
 
+	//Create Maytri
+	mid := utils.GenerateID()
 	maytriORM := orm.Load(&models.Maytri{})
 	newMaytri := &models.Maytri{
-		Id:         utils.GenerateID(),
+		Id:         mid,
 		UserId:     uid,
 		Descrption: req.Descrption,
 		Image:      "",
@@ -35,14 +37,39 @@ func CreatePrivateChat(c *fiber.Ctx) error {
 		})
 	}
 
+	//Create Chat
+	cid := utils.GenerateID()
 	chatsORM := orm.Load(&models.Chats{})
 	newChat := &models.Chats{
-		Id:        utils.GenerateID(),
+		Id:        cid,
 		UserId:    uid,
 		Type:      "private",
 		CreatedAt: time.Now(),
 	}
 	if err := chatsORM.Insert(newChat); err != nil {
+		return c.Status(500).JSON(fiber.Map{
+			"error": "Internal Server Error",
+		})
+	}
+
+	//Add Maytri to Chat
+	participantsORM := orm.Load(&models.ChatParticipants{})
+	if err := participantsORM.Insert(&models.ChatParticipants{
+		Id:            utils.GenerateID(),
+		ChatId:        cid,
+		ParticipantId: mid,
+	}); err != nil {
+		return c.Status(500).JSON(fiber.Map{
+			"error": "Internal Server Error",
+		})
+	}
+
+	//Add User to Chat
+	if err := participantsORM.Insert(&models.ChatParticipants{
+		Id:            utils.GenerateID(),
+		ChatId:        cid,
+		ParticipantId: uid,
+	}); err != nil {
 		return c.Status(500).JSON(fiber.Map{
 			"error": "Internal Server Error",
 		})

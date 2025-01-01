@@ -47,11 +47,10 @@ type Chats struct {
 }
 
 type ChatParticipants struct {
-	TableName string `karma_table:"chat_participants"`
-	Id        string `json:"id"`
-	ChatId    string `json:"chat_id"`
-	UserId    string `json:"user_id"`
-	MytriId   string `json:"mytri_id"`
+	TableName     string `karma_table:"chat_participants"`
+	Id            string `json:"id"`
+	ChatId        string `json:"chat_id"`
+	ParticipantId string `json:"participant_id"`
 }
 
 type GroupDetails struct {
